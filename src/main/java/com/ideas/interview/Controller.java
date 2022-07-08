@@ -1,9 +1,11 @@
 package com.ideas.interview;
 
+import com.ideas.interview.domain.model.Product;
+
 public class Controller {
 	private final Display display;
 	private final Barista barista;
-	private CoffeeType coffeeType;
+	private CoffeType coffeeType;
 
 	public Controller(Display display, Barista barista) {
 		this.display = display;
@@ -11,13 +13,14 @@ public class Controller {
 		display.show("Please select a coffee type");
 	}
 
-	public void userWants(CoffeeType coffeeType) {
+	
+	public void userWants(CoffeType coffeeType) {
 		this.coffeeType = coffeeType;
 		display.show("Great Choice!");
 	}
 
-	public void dispense() {
-		barista.serve(coffeeType);
+	public void dispense(Product p) {
+		barista.serve(p);
 		display.show("Please collect your delicious coffee");
 	}
 }
